@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DailyRemindersApp.MainPage">
+
+    <StackLayout>
+        <!-- title -->
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Daily reminders" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+
+        <!-- collection that will display each activity, wether it has been completed or not, 
+        and the amount of days in a row this activity has been completed -->
+        <CollectionView x:Name="collection" SelectionMode="Single" SelectionChanged="collectionView_SelectionChanged" EmptyView="No items to display">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
+                        <!-- activity name displayed here -->
+                        <Label Text="{Binding Activity}" FontSize="Large" TextDecorations="Underline"/>
+
+                        <!-- completed or not displayed here -->
+                        <StackLayout Orientation="Horizontal" Padding="5" HorizontalOptions="FillAndExpand">
+                            <Label Text="Completed?: " FontSize="Medium"/>
+                            <CheckBox x:Name="check" Scale="1.3" Color="#2196F3" IsEnabled="False" IsChecked="{Binding IsChecked}"/>
+                        </StackLayout>
+
+                        <!-- days in a row displayed here -->
+                        <StackLayout Orientation="Horizontal" Padding="5" HorizontalOptions="FillAndExpand">
+                            <Label Text="Streak: " FontSize="Medium"/>
+                            <Label Text="{Binding Count}" FontSize="Medium"/>
+                            <Label Text=" day(s)" FontSize="Medium"/>
+                        </StackLayout>
+
+                        <BoxView Color="Black" WidthRequest ="100" HeightRequest="1"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- creates a button that will check off an activity if not already checked -->
+        <Button Text="Update Activity" Clicked="OnUpdatedButtonClicked"/>
+
+        <StackLayout Orientation="Horizontal" Padding="33, 5, 5, 5" HorizontalOptions="FillAndExpand">
+            <!-- creates a button that will add a new activity to the
+                 activity DB and is displayed on the grid -->
+            <Button Text="Add New Activity" Clicked="OnNewActivityButtonClicked"/>
+
+            <!-- creates a button that will delete selected activity -->
+            <Button Text="Delete Activity" Clicked="OnDeleteButtonClicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

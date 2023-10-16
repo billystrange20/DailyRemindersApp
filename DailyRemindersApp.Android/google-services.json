@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "984327805036",
+    "project_id": "dailyremindersapp",
+    "storage_bucket": "dailyremindersapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984327805036:android:ac02e90d1bcb5d33612049",
+        "android_client_info": {
+          "package_name": "uk.billystrange.dailyremindersapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK2hFAK1jddQnoSaIz9dF1ROBNQ0wp2Yc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
